@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: white;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    #text1 {
+      margin: 20px auto;
+      font-family: monospace;
+      font-size: 20px;
+      white-space: pre-wrap;
+      padding: 20px;
+      position: relative;
+      z-index: 10;
+      line-height: 1.5;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      animation: floatUp 4s linear infinite;
+      font-size: 24px;
+      opacity: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-1000px);
+        opacity: 0;
+      }
+    }
+
+    #myButton {
+      display: none;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #B24592;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #myButton:hover {
+      background-color: #f15f79;
+    }
+  </style>
+</head>
+<body>
+
+<div id="text1"></div>
+<button onclick="navigateToPage()" id="myButton">Surprise ❤️</button>
+
+<script>
+  var i = 0;
+  var txt1 = `Hey My love,[br]
+You probably know that I like you, and I\'m sure if I confessed, you wouldn\'t choose me, and that\'s completely okay.[br]
+You know, the first time I saw you, it wasn\'t love at first sight. But as time passes by, I began to notice you. Every little detail, slowly but surely, showed me that you were exactly the girl I am looking for. When I come to college my first priority is to search you, the moment I see it will become a happiest day in life. And I can\'t forget the day we started talking, it\'s an unforgettable moment in my life. I know if confess you will not agree.[br]
+But with 0.00001% hope tho adugutunna oka chance istava jivithantham gundelo pettukoni chuskunta❤️.[br]
+Maybe I won\'t be the one you choose, but I just wanted you to know that I see you and I think that\'s beautiful. I\'ll be here, quietly supporting you, no matter what.❤️❤️`;
+
+  var speed = 50;
+
+  function typeWriter() {
+    if (i < txt1.length) {
+      if (txt1.substr(i, 4) === '[br]') {
+        document.getElementById("text1").innerHTML += "<br>";
+        i += 4;
+      } else {
+        document.getElementById("text1").innerHTML += txt1.charAt(i);
+        i++;
+      }
+      setTimeout(typeWriter, speed);
+    } else {
+      document.getElementById("myButton").style.display = "inline-block";
+    }
+  }
+
+  function navigateToPage() {
+    window.location.href = "surprise.html";  // <-- Put your target HTML page here
+  }
+
+  typeWriter();
+
+  setInterval(function() {
+    var heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+      heart.remove();
+    }, 4000);
+  }, 500);
+</script>
+
+</body>
+</html>
