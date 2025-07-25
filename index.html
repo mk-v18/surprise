@@ -45,21 +45,25 @@
     }
 
     #myButton {
-      display: none;
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 18px;
-      background-color: #B24592;
-      border: none;
-      border-radius: 50px;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+  display: none;
+  padding: 15px 60px;
+  font-size: 20px;
+  color: white;
+  background-color: #B24592;  /* Purple color */
+  border: 4px solid black;
+  border-radius: 50px;        /* Fully rounded */
+  outline: 2px solid #B24592; /* Extra purple outline to simulate inner stroke */
+  box-shadow: 0 0 0 3px black; /* Outer black outline */
+  cursor: pointer;
+  transition: transform 0.3s;
+}
 
-    #myButton:hover {
-      background-color: #f15f79;
-    }
+#myButton:hover {
+  transform: scale(1.05);
+  background-color: #f15f79;
+  outline: 2px solid #f15f79;
+}
+
   </style>
 </head>
 <body>
