@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       background-color: #0f0f0f;
       color: white;
-      overflow: hidden;
       margin: 0;
       padding: 0;
       text-align: center;
+      font-family: monospace;
+      overflow-x: hidden;
     }
 
     #text1 {
       margin: 20px auto;
-      font-family: monospace;
-      font-size: 20px;
+      font-size: 18px;
       white-space: pre-wrap;
       padding: 20px;
-      position: relative;
-      z-index: 10;
-      line-height: 1.5;
+      line-height: 1.6;
+      max-width: 90%;
     }
 
     .heart {
-      position: absolute;
+      position: fixed; /* Changed from absolute to fixed */
       color: red;
       animation: floatUp 4s linear infinite;
       font-size: 24px;
       opacity: 0;
+      pointer-events: none; /* Let clicks pass through */
     }
 
     @keyframes floatUp {
@@ -39,31 +40,31 @@
         opacity: 1;
       }
       100% {
-        transform: translateY(-1000px);
+        transform: translateY(-100vh);
         opacity: 0;
       }
     }
 
     #myButton {
-  display: none;
-  padding: 15px 60px;
-  font-size: 20px;
-  color: white;
-  background-color: #B24592;  /* Purple color */
-  border: 4px solid black;
-  border-radius: 50px;        /* Fully rounded */
-  outline: 2px solid #B24592; /* Extra purple outline to simulate inner stroke */
-  box-shadow: 0 0 0 3px black; /* Outer black outline */
-  cursor: pointer;
-  transition: transform 0.3s;
-}
+      display: none;
+      padding: 15px 50px;
+      font-size: 18px;
+      color: white;
+      background-color: #B24592;
+      border: 4px solid black;
+      border-radius: 50px;
+      outline: 2px solid #B24592;
+      box-shadow: 0 0 0 3px black;
+      cursor: pointer;
+      transition: transform 0.3s;
+      margin: 20px auto;
+    }
 
-#myButton:hover {
-  transform: scale(1.05);
-  background-color: #f15f79;
-  outline: 2px solid #f15f79;
-}
-
+    #myButton:hover {
+      transform: scale(1.05);
+      background-color: #f15f79;
+      outline: 2px solid #f15f79;
+    }
   </style>
 </head>
 <body>
@@ -97,7 +98,7 @@ Maybe I won\'t be the one you choose, but I just wanted you to know that I see y
   }
 
   function navigateToPage() {
-    window.location.href = "surprise.html";  // <-- Put your target HTML page here
+    window.location.href = "surprise.html";
   }
 
   typeWriter();
